@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "577436753919",
+    "project_id": "glamify-beda9",
+    "storage_bucket": "glamify-beda9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577436753919:android:6888072c24a550aaca91ca",
+        "android_client_info": {
+          "package_name": "com.project.glamify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577436753919-uvm6bc60qoefg1t0gigisrre87c2h6v1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.glamify",
+            "certificate_hash": "6754f472a9d6a9adaea01c896c26505243e01a0a"
+          }
+        },
+        {
+          "client_id": "577436753919-8hnhq7mn2ucjmv9fm9kibcuup6avguck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3QM6CWuFZ39H6ngh0tdzfOMdbI-x2Ets"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577436753919-8hnhq7mn2ucjmv9fm9kibcuup6avguck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
