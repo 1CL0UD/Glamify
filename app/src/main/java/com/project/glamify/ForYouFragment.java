@@ -21,13 +21,9 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ForYouFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ForYouFragment extends Fragment {
-
-    private RecyclerView recyclerView;
-    private ArrayList<Contact> list;
 
     @Nullable
     @Override
@@ -40,12 +36,11 @@ public class ForYouFragment extends Fragment {
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
         toolbar.setTitle("For You");
 
-        recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        list = new ArrayList<>();
-        list.addAll(ContactData.getListData());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        CardViewContactAdapter cardViewContactAdapter= new CardViewContactAdapter(this);
+        ArrayList<Contact> list = new ArrayList<>(ContactData.getListData());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        CardViewContactAdapter cardViewContactAdapter= new CardViewContactAdapter(getContext());
         cardViewContactAdapter.setContactList(list);
         recyclerView.setAdapter(cardViewContactAdapter);
 

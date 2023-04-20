@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContactAdapter.CardViewViewHolder>{
     private ArrayList<Contact> contactList;
-    private Context context;
+    private final Context context;
 
     public CardViewContactAdapter(Context context) {
         this.context = context;
@@ -36,8 +36,7 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_item, parent,false);
-        CardViewViewHolder viewHolder = new CardViewViewHolder(view);
-        return viewHolder;
+        return new CardViewViewHolder(view);
     }
 
     @Override
@@ -45,12 +44,12 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
         Contact c = getContactList().get(position);
         Glide.with(context).load(c.getPhoto()).override(350,550).into(holder.imgPhoto);
         holder.tvName.setText(c.getName());
-        holder.btnCall.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Call "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
-            }
-        }));
+//        holder.btnCall.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(View view, int position) {
+//                Toast.makeText(context, "Call "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
+//            }
+//        }));
         holder.btnMessage.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
