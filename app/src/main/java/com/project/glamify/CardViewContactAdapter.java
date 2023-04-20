@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContactAdapter.CardViewViewHolder>{
     private ArrayList<Contact> contactList;
-    private final Context context;
+    private Context context;
 
     public CardViewContactAdapter(Context context) {
         this.context = context;
@@ -36,7 +36,8 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contact_item, parent,false);
-        return new CardViewViewHolder(view);
+        CardViewViewHolder viewHolder = new CardViewViewHolder(view);
+        return viewHolder;
     }
 
     @Override

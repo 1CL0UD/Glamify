@@ -20,4 +20,11 @@ plugins {
     id 'com.android.library' version '7.4.1' apply false
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'
+    }
+}
+
+
 
