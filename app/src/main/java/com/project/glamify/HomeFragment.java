@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
         // do something with homeText
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
-        toolbar.setTitle("Home");
+        toolbar.setTitle("Home Screen");
         return view;
     }
 
