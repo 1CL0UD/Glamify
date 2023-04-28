@@ -25,6 +25,9 @@ import java.util.ArrayList;
  */
 public class ForYouFragment extends Fragment {
 
+    private RecyclerView recyclerView;
+    private ArrayList<Contact> list;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -36,9 +39,10 @@ public class ForYouFragment extends Fragment {
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
         toolbar.setTitle("For You");
 
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        ArrayList<Contact> list = new ArrayList<>(ContactData.getListData());
+        list = new ArrayList<>();
+        list.addAll(ContactData.getListData());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         CardViewContactAdapter cardViewContactAdapter= new CardViewContactAdapter(getContext());
         cardViewContactAdapter.setContactList(list);
