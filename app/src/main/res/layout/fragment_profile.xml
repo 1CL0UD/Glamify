@@ -3,26 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="64dp"
     android:layout_marginBottom="64dp"
     android:id="@+id/fragment_profile"
     tools:context=".ProfileFragment">
 
-<!--    <TextView-->
-<!--        android:id="@+id/profile_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Profile Page"-->
-<!--        android:textSize="24sp"-->
-<!--        android:layout_gravity="center"/>-->
 
-    <ImageView
-        android:id="@+id/profile_preview"
-        android:src="@drawable/bodyprofile"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center">
-    </ImageView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/person"
+            app:civ_border_color="@color/purple_200"
+            app:civ_border_width="2dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/profile_preview"-->
+<!--        android:src="@drawable/bodyprofile"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_gravity="center">-->
+<!--    </ImageView>-->
 
 
 </FrameLayout>
