@@ -22,8 +22,7 @@ public class ShopFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop, container, false);
-//        TextView homeText = view.findViewById(R.id.shop_text);
-        ImageView shopprev = view.findViewById(R.id.shop_preview);
+
         // do something with homeText
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
