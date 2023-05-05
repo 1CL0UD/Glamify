@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductPage">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:id="@+id/p_pic1"
+                            android:layout_width="match_parent"
+                            android:layout_height="320dp"
+                            android:adjustViewBounds="true"
+                            app:srcCompat="@drawable/oatside"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="contentDesc">
+
+                        </ImageView>
+                        <ImageView
+                            android:id="@+id/p_pic2"
+                            android:layout_width="match_parent"
+                            android:layout_height="320dp"
+                            android:adjustViewBounds="true"
+                            app:srcCompat="@drawable/oatside1"
+                            android:scaleType="fitCenter"
+                            android:contentDescription="contentDesc">
+
+                        </ImageView>
+                    </LinearLayout>
+                </HorizontalScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:id="@+id/product_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="24dp"
+                        android:text="Oatmilk"
+                        android:textColor="@color/black"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/product_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="20dp"
+                        android:text="Rp. 20.000"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/teal_200"
+                        android:layout_marginVertical="10dp"/>
+                    <TextView
+                        android:id="@+id/product_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="16dp"
+                        android:text="@string/product_desc_str"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/msg_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:icon="@drawable/ic_msg"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/add_to_cart_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Add to Cart"
+                android:textSize="10dp"
+                app:icon="@drawable/ic_cart"
+                android:gravity="center"
+                android:textColor="@color/purple_200"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/buy_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Buy"
+                android:textSize="10dp"
+                app:icon="@drawable/ic_ccard"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/teal_200"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+    <!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/product_imgs"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--    </androidx.viewpager.widget.ViewPager>-->
+
+</LinearLayout>

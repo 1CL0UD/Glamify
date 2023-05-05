@@ -18,4 +18,10 @@
     <string name="login_failed">"Login failed"</string>
     <string name="welcome_home">Welcome to the Home Fragment!</string>
 
+    <string name="product_desc_str">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus sapien ut finibus mattis. Quisque sollicitudin mollis sem, vestibulum volutpat ante condimentum sit amet. Nullam urna mauris, faucibus vel nunc sed, bibendum placerat nisi. Phasellus consequat tortor eget pellentesque finibus. Maecenas odio tellus, ultricies et egestas sed, dignissim malesuada libero. Praesent vitae enim id nibh faucibus fringilla ornare ut est. Proin ultrices dui at imperdiet sodales. Vivamus elementum feugiat ipsum, eu fermentum ipsum lacinia non. Pellentesque elementum ullamcorper fringilla. Etiam consequat posuere libero, ac interdum augue vestibulum vel. Ut finibus sapien vitae purus lobortis, in facilisis nunc rhoncus. Curabitur bibendum, massa pretium viverra finibus, libero augue efficitur risus, in faucibus est sapien id felis. Nam maximus elit sit amet enim mollis, dignissim sollicitudin dui congue. Sed laoreet quam eu magna laoreet, eget accumsan est suscipit.
+
+Cras eget dolor magna. Morbi finibus sapien vel eleifend convallis. Maecenas consequat diam turpis, facilisis tincidunt velit lobortis sit amet. Aliquam ultricies risus eget felis ultrices egestas. Donec ultricies facilisis tincidunt. Integer condimentum tellus non fringilla semper. Aenean sed neque venenatis, venenatis justo in, imperdiet quam.
+
+Nam fringilla nunc et egestas semper. Etiam nibh lorem, luctus eu semper nec, interdum eu ligula. Nulla sodales dui velit, vitae volutpat velit pellentesque id. Praesent eget euismod ipsum. Donec molestie dolor quam, nec lacinia risus laoreet at. Pellentesque congue tellus aliquet euismod venenatis. Praesent tincidunt non tellus eu porta. Nulla eu tellus sed tortor mollis aliquam. Donec varius leo ornare tempor volutpat. Mauris ut tincidunt turpis. Morbi quis mollis mi. Aliquam aliquam et diam ut vestibulum.</string>
+
 </resources>
