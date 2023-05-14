@@ -71,7 +71,6 @@ public class CardViewProfileAdapter extends RecyclerView.Adapter<CardViewProfile
         public CardViewViewHolder(View itemView) {
             super(itemView);
             imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
-            tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
             btnMessage = (Button)itemView.findViewById(R.id.btn_message);
         }
     }

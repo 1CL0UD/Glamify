@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -44,17 +44,17 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
     public void onBindViewHolder(@NonNull CardViewViewHolder holder, int position) {
         Contact c = getContactList().get(position);
         Glide.with(context).load(c.getPhoto()).override(350,550).into(holder.imgPhoto);
-        holder.tvName.setText(c.getName());
+        holder.title.setText(c.getName());
 //        holder.btnCall.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
 //            @Override
 //            public void onItemClicked(View view, int position) {
 //                Toast.makeText(context, "Call "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
 //            }
 //        }));
-        holder.btnMessage.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
+        holder.card_fy.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Message "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Clicked "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
     }
@@ -66,14 +66,17 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
-        TextView tvName;
-        Button btnCall, btnMessage;
+        TextView title, subtitle;
+
+        MaterialCardView card_fy;
         public CardViewViewHolder(View itemView) {
             super(itemView);
-            imgPhoto = (ImageView)itemView.findViewById(R.id.img_item_photo);
-            tvName = (TextView)itemView.findViewById(R.id.tv_item_name);
-//            btnCall = (Button)itemView.findViewById(R.id.btn_call);
-            btnMessage = (Button)itemView.findViewById(R.id.btn_message);
+            card_fy = (MaterialCardView) itemView.findViewById(R.id.card_fy);
+            imgPhoto = (ImageView) itemView.findViewById(R.id.card_img);
+            title = (TextView) itemView.findViewById(R.id.card_title);
+            subtitle = (TextView) itemView.findViewById(R.id.card_sub);;
+
+
         }
     }
 

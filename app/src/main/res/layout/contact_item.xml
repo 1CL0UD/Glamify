@@ -1,52 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_fy"
+    android:clickable="true"
     android:layout_width="match_parent"
-    android:layout_gravity="center"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp">
-    <RelativeLayout
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Media -->
         <ImageView
-            android:id="@+id/img_item_photo"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp">
-        </ImageView>
+            android:id="@+id/card_img"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:scaleType="centerCrop"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_toEndOf="@id/img_item_photo">
+            android:padding="16dp">
+
+            <!-- Title, secondary and supporting text -->
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/card_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_item_name"
-                android:text="Name"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp">
-            </TextView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <Button
-                    android:id="@+id/btn_message"
-                    android:drawableRight="@drawable/baseline_arrow_forward_24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:text="Read More"
-                    android:layout_weight="1"/>
-            </LinearLayout>
+                android:text="Wedding Organizer"
+                android:textSize="24dp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                />
+            <TextView
+                android:id="@+id/card_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Include an image for each update, extracted from the webpage or manually chosen."
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textSize="16dp"
+                android:textColor="?android:attr/textColorSecondary"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
-    </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
+
+<!--<androidx.cardview.widget.CardView-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_gravity="center"-->
+<!--    android:layout_marginTop="4dp"-->
+<!--    android:layout_marginBottom="4dp"-->
+<!--    android:layout_marginLeft="8dp"-->
+<!--    android:layout_marginRight="8dp">-->
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <ImageView-->
+<!--            android:id="@+id/img_item_photo"-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:layout_marginEnd="8dp">-->
+<!--        </ImageView>-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_toEndOf="@id/img_item_photo">-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/tv_item_name"-->
+<!--                android:text="Name"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_marginBottom="8dp">-->
+<!--            </TextView>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+<!--                <Button-->
+<!--                    android:id="@+id/btn_message"-->
+<!--                    android:drawableRight="@drawable/baseline_arrow_forward_24"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/Widget.AppCompat.Button.Colored"-->
+<!--                    android:text="Read More"-->
+<!--                    android:layout_weight="1"/>-->
+<!--            </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+<!--    </RelativeLayout>-->
+
+<!--</androidx.cardview.widget.CardView>-->
+
