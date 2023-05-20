@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class ProfileMenu {
     public static String[][] data = new String[][]{
-        {"Account Settings", "https://randomuser.me/api/portraits/lego/1.jpg"},
-        {"Privacy & Security", "https://randomuser.me/api/portraits/lego/2.jpg"},
-        {"Notification", "https://randomuser.me/api/portraits/lego/3.jpg"},
-        {"Transaction History", "https://randomuser.me/api/portraits/lego/4.jpg"},
-        {"Payment Method", "https://randomuser.me/api/portraits/lego/5.jpg"},
-        {"Join Us", "https://randomuser.me/api/portraits/lego/6.jpg"},
-        {"Help Center", "https://randomuser.me/api/portraits/lego/7.jpg"},
-        {"Log Out", "https://randomuser.me/api/portraits/lego/8.jpg"},
+        {"Account Settings", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Aperson%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Privacy & Security", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Asecurity%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Notification", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Anotifications%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Transaction History", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Apoint_of_sale%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Payment Method", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Apayments%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Join Us", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Awork%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Help Center", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Ahelp%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
+        {"Log Out", "https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Alogout%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048"},
     };
 
     public static ArrayList<Profile> getListData(){
