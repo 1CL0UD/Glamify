@@ -25,8 +25,7 @@ public class OrdersFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_orders, container, false);
-        TextView homeText = view.findViewById(R.id.orders_text);
-        // do something with homeText
+
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
