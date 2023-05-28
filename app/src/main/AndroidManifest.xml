@@ -17,7 +17,7 @@
             android:name=".ProfileBaseline"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ProductPage"
@@ -26,7 +26,7 @@
             android:name=".GoogleSignInActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
