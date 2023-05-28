@@ -1,44 +1,26 @@
 {
   "project_info": {
-    "project_number": "577436753919",
-    "project_id": "glamify-beda9",
-    "storage_bucket": "glamify-beda9.appspot.com"
+    "project_number": "863259287637",
+    "project_id": "wedding-dream-70431",
+    "storage_bucket": "wedding-dream-70431.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:577436753919:android:6888072c24a550aaca91ca",
+        "mobilesdk_app_id": "1:863259287637:android:120b80dc5ba4d02921f4dc",
         "android_client_info": {
           "package_name": "com.project.glamify"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "577436753919-uvm6bc60qoefg1t0gigisrre87c2h6v1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.project.glamify",
-            "certificate_hash": "6754f472a9d6a9adaea01c896c26505243e01a0a"
-          }
-        },
-        {
-          "client_id": "577436753919-8hnhq7mn2ucjmv9fm9kibcuup6avguck.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC3QM6CWuFZ39H6ngh0tdzfOMdbI-x2Ets"
+          "current_key": "AIzaSyDW7yYJa8S3PJ-GWXP3jU02K3I1AARTEC0"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "577436753919-8hnhq7mn2ucjmv9fm9kibcuup6avguck.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
