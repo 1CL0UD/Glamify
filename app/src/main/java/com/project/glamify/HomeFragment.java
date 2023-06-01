@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.renderscript.Allocation;
@@ -25,9 +27,12 @@ import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
+import java.util.ArrayList;
+
 
 public class HomeFragment extends Fragment {
-
+    private RecyclerView recyclerView;
+    private ArrayList<Contact> list;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,6 +42,17 @@ public class HomeFragment extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
         toolbar.setTitle("Home Screen");
+
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        list = new ArrayList<>();
+        list.addAll(ContactData.getListData());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        CardViewContactAdapter cardViewContactAdapter= new CardViewContactAdapter(getContext());
+        cardViewContactAdapter.setContactList(list);
+        recyclerView.setAdapter(cardViewContactAdapter);
+
+
         return view;
     }
 

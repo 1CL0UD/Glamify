@@ -1,6 +1,7 @@
 package com.project.glamify;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,20 +46,19 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
         Contact c = getContactList().get(position);
         Glide.with(context).load(c.getPhoto()).override(350,550).into(holder.imgPhoto);
         holder.title.setText(c.getName());
-//        holder.btnCall.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
-//            @Override
-//            public void onItemClicked(View view, int position) {
-//                Toast.makeText(context, "Call "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
-//            }
-//        }));
+
         holder.card_fy.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
+                openNewActivity();
                 Toast.makeText(context, "Clicked "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
     }
-
+    private void openNewActivity() {
+        Intent intent = new Intent(context, ForYou_WeddingOrganizer.class);
+        context.startActivity(intent);
+    }
     @Override
     public int getItemCount() {
         return getContactList().size();
