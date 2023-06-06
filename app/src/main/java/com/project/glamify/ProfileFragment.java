@@ -1,5 +1,6 @@
 package com.project.glamify;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,8 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
@@ -26,9 +31,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
-
+    private GoogleSignInClient gsc;
     private RecyclerView recyclerView;
     private ArrayList<Profile> list;
+
+    private Button signOutBtn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,6 +59,26 @@ public class ProfileFragment extends Fragment {
         recyclerView.setAdapter(cardViewProfileAdapter);
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button button = view.findViewById(R.id.signoutprof);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle button click event here
+                changeActivity();
+            }
+        });
+    }
+
+    private void changeActivity() {
+        // Start the new activity here
+        Intent intent = new Intent(getActivity(), ProfileBaseline.class);
+        startActivity(intent);
     }
 
 

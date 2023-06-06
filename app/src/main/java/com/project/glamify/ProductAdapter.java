@@ -6,10 +6,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -38,8 +40,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Product product = productList.get(position);
         holder.productTitleTextView.setText(product.getProduct_title());
         holder.productPriceTextView.setText(String.format("Rp %s", product.getProduct_price()));
-        holder.productTitleTextView.setText(product.getProduct_title());
-        Picasso.get().load(product.getProduct_image()).error(R.drawable.makeup1).into(holder.productImageView);
+        String imagePath = product.getProduct_image();
+        Picasso.get().load("gs://wedding-dream-70431.appspot.com/recomm_prod/EsteeLauderFoundationDoubleWearStay-InPlaceSPF1030ml/7824949_c2a54fba-86ca-4752-b8c2-428b1afff833_1500_1500.jpg").error(R.drawable.makeup1).into(holder.productImageView);
     }
 
     @Override
