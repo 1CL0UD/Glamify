@@ -25,5 +25,6 @@ Cras eget dolor magna. Morbi finibus sapien vel eleifend convallis. Maecenas con
 Nam fringilla nunc et egestas semper. Etiam nibh lorem, luctus eu semper nec, interdum eu ligula. Nulla sodales dui velit, vitae volutpat velit pellentesque id. Praesent eget euismod ipsum. Donec molestie dolor quam, nec lacinia risus laoreet at. Pellentesque congue tellus aliquet euismod venenatis. Praesent tincidunt non tellus eu porta. Nulla eu tellus sed tortor mollis aliquam. Donec varius leo ornare tempor volutpat. Mauris ut tincidunt turpis. Morbi quis mollis mi. Aliquam aliquam et diam ut vestibulum.</string>
     <string name="content_description_media">Content Desc\n</string>
     <string name="default_web_client_id">863259287637-a32embn49b8q3cvlpoujvuv6se6a9g2g.apps.googleusercontent.com</string>
+    <string name="for_you_label">For You</string>
 
 </resources>

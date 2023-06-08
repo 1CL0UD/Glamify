@@ -50,15 +50,12 @@ public class CardViewContactAdapter extends RecyclerView.Adapter<CardViewContact
         holder.card_fy.setOnClickListener(new CustomOnItemClickListener(position, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                openNewActivity();
+
                 Toast.makeText(context, "Clicked "+getContactList().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
     }
-    private void openNewActivity() {
-        Intent intent = new Intent(context, ForYou_WeddingOrganizer.class);
-        context.startActivity(intent);
-    }
+
     @Override
     public int getItemCount() {
         return getContactList().size();

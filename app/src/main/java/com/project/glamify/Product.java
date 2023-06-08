@@ -1,6 +1,8 @@
 package com.project.glamify;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String product_image;
     private String product_image1;
     private String product_image2;

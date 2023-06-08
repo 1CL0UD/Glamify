@@ -27,9 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShopFragment extends Fragment {
+public class ShopFragment extends Fragment implements OnItemClickListener{
 
-    private RecyclerView recyclerView, carousel_recyclerView, newProdrecyclerView;
+    private RecyclerView recyclerView;
+    private RecyclerView newProdrecyclerView;
+    private RecyclerView carousel_recyclerView;
     private ProductAdapter productAdapter;
     private ProductAdapter newProductAdapter;
 
@@ -164,19 +166,18 @@ public class ShopFragment extends Fragment {
         toolbar.setTitle("Shop");
 //        toolbar.setTitleTextColor(Integer.parseInt("#191C1B"));
 
-//        MaterialCardView cardView = view.findViewById(R.id.item1);
-//        cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                Toast.makeText(requireContext(), "Card clicked", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), ProductPage.class);
-//                startActivity(intent);
-//            }
-//        });
+
         return view;
     }
 
     private void showRecomProducts() {
 
+    }
+
+    @Override
+    public void onItemClick(Product product) {
+        Intent intent = new Intent(getActivity(), ProductPage.class);
+        intent.putExtra("product", product);
+        startActivity(intent);
     }
 }
