@@ -5,10 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".OrderFragments.OnGoing">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Ongoing Fragment" />
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="Ongoing Fragment" />
+    </LinearLayout>
 
 </FrameLayout>

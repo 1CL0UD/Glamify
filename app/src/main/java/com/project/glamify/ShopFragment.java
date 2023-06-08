@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +17,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -37,7 +35,6 @@ public class ShopFragment extends Fragment implements OnItemClickListener{
 
     private ShopCarouselAdapter shopCarouselAdapter;
     private List<Product> productList;
-
     private List<ShopCarousel> shopCarousel;
 
     private FirebaseFirestore db;
@@ -54,7 +51,7 @@ public class ShopFragment extends Fragment implements OnItemClickListener{
         productAdapter = new ProductAdapter(productList);
         recyclerView.setAdapter(productAdapter);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
         CollectionReference productsRef = db.collection("recomm_product");
 
         productsRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

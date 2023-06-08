@@ -8,7 +8,6 @@ public class Product implements Serializable {
     private String product_image2;
     private String product_price;
     private String product_title;
-
     private String product_desc;
 
     public Product(){
