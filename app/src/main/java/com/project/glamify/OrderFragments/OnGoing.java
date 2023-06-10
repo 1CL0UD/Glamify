@@ -2,65 +2,111 @@ package com.project.glamify.OrderFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.project.glamify.OrderFragments.AdapterClasses.OrderStatusAdapter;
+import com.project.glamify.OrderFragments.ObjectClasses.OrderStatus;
 import com.project.glamify.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link OnGoing#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class OnGoing extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private GoogleSignInOptions gso;
+    private GoogleSignInClient gsc;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView ongRView;
+    private List<OrderStatus> orderStatusList;
 
-    public OnGoing() {
-        // Required empty public constructor
-    }
+    private OrderStatusAdapter orderStatusAdapter;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment OnGoing.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static OnGoing newInstance(String param1, String param2) {
-        OnGoing fragment = new OnGoing();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private FirebaseFirestore db;
 
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_on_going, container, false);
+
+        ongRView = view.findViewById(R.id.ong_rview);
+        ongRView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        orderStatusList = new ArrayList<>();
+
+        orderStatusAdapter = new OrderStatusAdapter(orderStatusList);
+        ongRView.setAdapter(orderStatusAdapter);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestId().build();
+        gsc = GoogleSignIn.getClient(getContext(), gso);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
+        String userId = "0";
+        if(acct!=null){
+            userId = acct.getId();
         }
+
+        db = FirebaseFirestore.getInstance();
+        CollectionReference verifRef = db.collection("order_ongo");
+        Query query = verifRef.whereEqualTo("userId", userId);
+
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<OrderStatus> orderStatusList = new ArrayList<>();
+
+                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            String title = documentSnapshot.getString("orderName");
+                            String img = documentSnapshot.getString("image");
+
+                            OrderStatus orderStatus = new OrderStatus(title, img);
+                            orderStatusList.add(orderStatus);
+
+                        }
+
+                        // Update the adapter with the retrieved product list
+                        orderStatusAdapter.setOrderStatusList(orderStatusList);
+                        orderStatusAdapter.notifyDataSetChanged();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle any errors that occurred during data retrieval
+                    }
+                });
+
+
+        return view;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_on_going, container, false);
+    public void onResume() {
+        super.onResume();
+
+        // Run your Java file code here
+        // This code will execute every time the fragment becomes visible
+
+        // Example code: Print a message to the console
+        Toast.makeText(getContext(), "Frag Opened", Toast.LENGTH_SHORT).show();
     }
 }

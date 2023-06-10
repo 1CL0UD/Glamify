@@ -11,15 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.glamify.OrderFragments.AdapterClasses.OrderStatusAdapter;
 import com.project.glamify.OrderFragments.ObjectClasses.OrderStatus;
+import com.project.glamify.ProductPage;
 import com.project.glamify.R;
 
 import java.util.ArrayList;
@@ -27,10 +34,12 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Processing#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class Processing extends Fragment {
+    private GoogleSignInOptions gso;
+    private GoogleSignInClient gsc;
+
     private RecyclerView procRView;
     private List<OrderStatus> orderStatusList;
 
@@ -51,10 +60,19 @@ public class Processing extends Fragment {
         orderStatusAdapter = new OrderStatusAdapter(orderStatusList);
         procRView.setAdapter(orderStatusAdapter);
 
-        db = FirebaseFirestore.getInstance();
-        CollectionReference procRef = db.collection("order_proc");
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().requestId().build();
+        gsc = GoogleSignIn.getClient(getContext(), gso);
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
+        String userId = "0";
+        if(acct!=null){
+            userId = acct.getId();
+        }
 
-        procRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db = FirebaseFirestore.getInstance();
+        CollectionReference verifRef = db.collection("order_proc");
+        Query query = verifRef.whereEqualTo("userId", userId);
+
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         List<OrderStatus> orderStatusList = new ArrayList<>();
@@ -70,6 +88,7 @@ public class Processing extends Fragment {
                         // Update the adapter with the retrieved product list
                         orderStatusAdapter.setOrderStatusList(orderStatusList);
                         orderStatusAdapter.notifyDataSetChanged();
+                        Toast.makeText(getContext(), "Berhasil", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -81,5 +100,15 @@ public class Processing extends Fragment {
 
 
         return view;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Run your Java file code here
+        // This code will execute every time the fragment becomes visible
+
+        // Example code: Print a message to the console
+        Toast.makeText(getContext(), "Frag Opened", Toast.LENGTH_SHORT).show();
     }
 }

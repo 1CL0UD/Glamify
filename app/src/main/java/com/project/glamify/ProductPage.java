@@ -86,7 +86,7 @@ public class ProductPage extends AppCompatActivity  {
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if(acct!=null){
-            Toast.makeText(ProductPage.this, "Tidak Null", Toast.LENGTH_SHORT).show();
+            Toast.makeText(ProductPage.this, "Masuk firestore", Toast.LENGTH_SHORT).show();
             String userId = acct.getId();
             sendData.put("userId", userId);
         }
