@@ -1,10 +1,5 @@
 package com.project.glamify;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,18 +9,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
 
-import android.os.Handler;
-import android.renderscript.Allocation;
-import android.renderscript.RenderScript;
-import android.renderscript.ScriptIntrinsicBlur;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +21,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.project.glamify.Adapters.CarouselHeaderAdapter;
 import com.project.glamify.Adapters.WoHomescreenAdapter;
 import com.project.glamify.ObjectClasses.WeddingOrganizer;
 
@@ -43,13 +29,15 @@ import java.util.List;
 
 
 public class HomeFragment extends Fragment {
-    private RecyclerView recyclerView;
+    private RecyclerView carouselHeader;
     private ArrayList<Contact> list;
-    private ViewPager2 carouselHeader;
-
     private RecyclerView wo_rv;
     private List<WeddingOrganizer> woList;
     private WoHomescreenAdapter woAdapter;
+
+    private List<ShopCarousel> headerCarousel;
+
+    private ShopCarouselAdapter headerCarouselAdapter;
 
     private FirebaseFirestore db;
     @Nullable
@@ -61,16 +49,41 @@ public class HomeFragment extends Fragment {
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
         toolbar.setTitle("Home Screen");
 
-//        carouselHeader = activity.findViewById(R.id.carouselHeader);
-//
-//        // Retrieve image links from Firestore and store in imageLinks list or array
-//        List<String> imageLinks = new ArrayList<>();
-//        imageLinks.add("https://example.com/image1.jpg");
-//        imageLinks.add("https://example.com/image2.jpg");
-//        // Add more image links as needed
-//
-//        CarouselHeaderAdapter carouselAdapter = new CarouselHeaderAdapter(imageLinks);
-//        carouselHeader.setAdapter(carouselAdapter);
+        db = FirebaseFirestore.getInstance();
+
+        carouselHeader = view.findViewById(R.id.carousel_header);
+        carouselHeader.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
+
+        headerCarousel = new ArrayList<>();
+
+        headerCarouselAdapter = new ShopCarouselAdapter(headerCarousel);
+        carouselHeader.setAdapter(headerCarouselAdapter);
+
+        CollectionReference carouselRef = db.collection("recomm_carousel");
+
+        carouselRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        List<ShopCarousel> shopCarouselList = new ArrayList<>();
+
+                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            String img = documentSnapshot.getString("image");
+
+                            ShopCarousel shopCarousel = new ShopCarousel(img);
+                            shopCarouselList.add(shopCarousel);
+                        }
+
+                        // Update the adapter with the retrieved product list
+                        headerCarouselAdapter.setShopCarouselList(shopCarouselList);
+                        headerCarouselAdapter.notifyDataSetChanged();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle any errors that occurred during data retrieval
+                    }
+                });
 
         wo_rv = view.findViewById(R.id.wo_homescreen);
         wo_rv.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -80,7 +93,7 @@ public class HomeFragment extends Fragment {
 
         wo_rv.setAdapter(woAdapter);
 
-        db = FirebaseFirestore.getInstance();
+
         CollectionReference productsRef = db.collection("wo_home");
 
         productsRef.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
