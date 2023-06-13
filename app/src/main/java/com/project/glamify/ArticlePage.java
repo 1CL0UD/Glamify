@@ -10,10 +10,12 @@ import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.project.glamify.ObjectClasses.WeddingOrganizer;
 
 public class ArticlePage extends AppCompatActivity {
 
     private ForYouArticles forYouArticles;
+    private WeddingOrganizer woObject;
     private TextView title, article, source;
 
     private MaterialToolbar toolbar;
@@ -28,6 +30,7 @@ public class ArticlePage extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             forYouArticles = (ForYouArticles) intent.getSerializableExtra("forYouArticles");
+            woObject = (WeddingOrganizer) intent.getSerializableExtra("woObject");
 
             if(forYouArticles != null){
                 // Display the product details in your activity
@@ -38,6 +41,18 @@ public class ArticlePage extends AppCompatActivity {
                 article.setText(((ForYouArticles) forYouArticles).getArticle());
                 source = findViewById(R.id.article_source);
                 source.setText(((ForYouArticles) forYouArticles).getSource());
+            }else{
+
+            }
+
+            if(woObject != null){
+                articlePageTitle = ((WeddingOrganizer) woObject).getTitle();
+                title = findViewById(R.id.article_title);
+                title.setText(((WeddingOrganizer) woObject).getTitle());
+                article = findViewById(R.id.article_content);
+                article.setText(((WeddingOrganizer) woObject).getArticle());
+                source = findViewById(R.id.article_source);
+                source.setText(((WeddingOrganizer) woObject).getSource());
             }else{
 
             }

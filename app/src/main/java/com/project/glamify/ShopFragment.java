@@ -99,7 +99,7 @@ public class ShopFragment extends Fragment implements OnItemClickListener{
                         List<ShopCarousel> shopCarouselList = new ArrayList<>();
 
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            String img = documentSnapshot.getString("prod_img");
+                            String img = documentSnapshot.getString("image");
 
                             ShopCarousel shopCarousel = new ShopCarousel(img);
                             shopCarouselList.add(shopCarousel);
