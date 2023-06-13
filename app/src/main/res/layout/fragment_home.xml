@@ -25,7 +25,13 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                 </androidx.recyclerview.widget.RecyclerView>
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wedding Organizers"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/wo_homescreen"
                     android:layout_width="match_parent"
