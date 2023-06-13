@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Glamify" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#006B58</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/material_theme_sys_light_primary</item>
+        <item name="colorPrimaryVariant">@color/material_theme_sys_light_primary_container</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

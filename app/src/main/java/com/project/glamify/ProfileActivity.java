@@ -1,5 +1,6 @@
 package com.project.glamify;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,16 +9,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.project.glamify.OrderFragments.ObjectClasses.OrderStatus;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -26,7 +40,10 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView userPicture;
     private TextView userName, userEmail;
 
-    private Button btnSignOut;
+    private TextView userdesc, userphone, userlocation;
+
+    private FloatingActionButton btnSignOut;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +59,7 @@ public class ProfileActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this,gso);
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        String userId = "0";
         if(acct!=null){
             String personName = acct.getDisplayName();
             String personEmail = acct.getEmail();
@@ -49,7 +67,9 @@ public class ProfileActivity extends AppCompatActivity {
             userName.setText(personName);
             userEmail.setText(personEmail);
             Picasso.get().load(ppUrl).into(userPicture);
+            userId = acct.getId();
         }
+
 
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +77,29 @@ public class ProfileActivity extends AppCompatActivity {
                 signOut();
             }
         });
+
+        userphone = findViewById(R.id.userPhone);
+        userlocation = findViewById(R.id.userLocation);
+        userdesc = findViewById(R.id.userDesc);
+        db = FirebaseFirestore.getInstance();
+        db.collection("user_detail").document(userId).get().addOnSuccessListener(documentSnapshot -> {
+            if(documentSnapshot.exists()){
+                String about = documentSnapshot.getString("about");
+                String address = documentSnapshot.getString("location");
+                String phone = documentSnapshot.getString("phone");
+                userphone.setText(phone);
+                userdesc.setText(about);
+                userlocation.setText(address);
+
+            }
+        }).addOnFailureListener(e -> {
+        //error
+        });
+
+
+
+
+
     }
 
     void signOut(){
