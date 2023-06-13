@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     private void navigateToSecondActivity() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
         startActivity(intent);
         finish();
     }
