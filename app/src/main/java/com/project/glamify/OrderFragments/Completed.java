@@ -34,7 +34,6 @@ import java.util.List;
 public class Completed extends Fragment {
     private GoogleSignInOptions gso;
     private GoogleSignInClient gsc;
-
     private RecyclerView comRView;
     private List<OrderStatus> orderStatusList;
 
