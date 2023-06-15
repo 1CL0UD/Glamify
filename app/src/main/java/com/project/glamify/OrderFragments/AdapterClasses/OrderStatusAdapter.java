@@ -16,6 +16,8 @@ import com.project.glamify.Product;
 import com.project.glamify.R;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.ProductViewHolder> {
@@ -41,20 +43,15 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         OrderStatus orderStatus = orderStatusList.get(position);
         holder.orderName.setText(orderStatus.getOrder());
+        holder.payment.setText(orderStatus.getPayment());
         String imagePath = orderStatus.getImage();
         Picasso.get().load(imagePath).error(R.drawable.makeup1).into(holder.orderImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the corresponding product based on the clicked position
-//                Product clickedProduct = productList.get(position);
-                Toast.makeText(v.getContext(), "Item clicked at position: " + orderStatus, Toast.LENGTH_SHORT).show();
 
-                // Start the new activity and pass the product data
-//                Intent intent = new Intent(v.getContext(), ProductPage.class);
-//                intent.putExtra("orderStatus", orderStatus);
-//                v.getContext().startActivity(intent);
+
             }
         });
     }
@@ -67,11 +64,13 @@ public class OrderStatusAdapter extends RecyclerView.Adapter<OrderStatusAdapter.
     static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView orderImage;
         TextView orderName;
+        TextView payment;
 
         ProductViewHolder(View itemView) {
             super(itemView);
             orderImage = itemView.findViewById(R.id.order_img);
             orderName = itemView.findViewById(R.id.order_name);
+            payment = itemView.findViewById(R.id.payment);
 
 
         }

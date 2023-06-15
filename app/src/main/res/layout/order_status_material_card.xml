@@ -38,8 +38,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:textSize="24dp"
+                    android:textSize="22dp"
                     android:text="Order Name"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    />
+                <TextView
+                    android:id="@+id/payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="14dp"
+                    android:text="Payment"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
                     />
             </LinearLayout>

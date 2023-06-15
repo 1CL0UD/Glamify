@@ -18,35 +18,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-                <HorizontalScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <LinearLayout
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/p_pic1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:id="@+id/p_pic1"
-                            android:layout_width="match_parent"
-                            android:layout_height="320dp"
-                            android:adjustViewBounds="true"
-                            app:srcCompat="@drawable/oatside"
-                            android:scaleType="fitCenter"
-                            android:contentDescription="contentDesc">
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/oatside"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="contentDesc">
 
-                        </ImageView>
-                        <ImageView
-                            android:id="@+id/p_pic2"
-                            android:layout_width="match_parent"
-                            android:layout_height="320dp"
-                            android:adjustViewBounds="true"
-                            app:srcCompat="@drawable/oatside1"
-                            android:scaleType="fitCenter"
-                            android:contentDescription="contentDesc">
+                    </ImageView>
 
-                        </ImageView>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                </LinearLayout>
+<!--                <HorizontalScrollView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
+<!--                    -->
+<!--                </HorizontalScrollView>-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

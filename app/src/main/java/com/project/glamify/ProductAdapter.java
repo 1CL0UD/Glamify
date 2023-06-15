@@ -47,9 +47,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the corresponding product based on the clicked position
-//                Product clickedProduct = productList.get(position);
-                Toast.makeText(v.getContext(), "Item clicked at position: " + product, Toast.LENGTH_SHORT).show();
 
                 // Start the new activity and pass the product data
                 Intent intent = new Intent(v.getContext(), ProductPage.class);

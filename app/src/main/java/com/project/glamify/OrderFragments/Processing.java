@@ -26,7 +26,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.project.glamify.OrderFragments.AdapterClasses.OrderStatusAdapter;
 import com.project.glamify.OrderFragments.ObjectClasses.OrderStatus;
-import com.project.glamify.ProductPage;
 import com.project.glamify.R;
 
 import java.util.ArrayList;
@@ -80,8 +79,9 @@ public class Processing extends Fragment {
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                             String title = documentSnapshot.getString("orderName");
                             String img = documentSnapshot.getString("image");
+                            String payment = documentSnapshot.getString("payment");
 
-                            OrderStatus orderStatus = new OrderStatus(title, img);
+                            OrderStatus orderStatus = new OrderStatus(title, img, payment);
                             orderStatusList.add(orderStatus);
                         }
 

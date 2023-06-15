@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="@color/material_theme_sys_light_primary_container" />
+    <item android:state_focused="true" android:color="@color/material_theme_sys_light_on_primary_container" />
+    <item android:color="@color/material_theme_surfaces_light_surface5" />
+</selector>

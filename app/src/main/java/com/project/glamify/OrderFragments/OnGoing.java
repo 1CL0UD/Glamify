@@ -77,8 +77,9 @@ public class OnGoing extends Fragment {
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                             String title = documentSnapshot.getString("orderName");
                             String img = documentSnapshot.getString("image");
+                            String payment = documentSnapshot.getString("payment");
 
-                            OrderStatus orderStatus = new OrderStatus(title, img);
+                            OrderStatus orderStatus = new OrderStatus(title, img, payment);
                             orderStatusList.add(orderStatus);
 
                         }
