@@ -122,7 +122,9 @@ public class PaymentActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         // Data saved successfully
-                        Toast.makeText(PaymentActivity.this, "Product saved to Firestore", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(PaymentActivity.this, MainActivity.class);
+                        startActivity(i);
+//                        Toast.makeText(PaymentActivity.this, "Product saved to Firestore", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

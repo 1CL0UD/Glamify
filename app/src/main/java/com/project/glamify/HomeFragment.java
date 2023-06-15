@@ -48,7 +48,7 @@ public class HomeFragment extends Fragment {
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         MaterialToolbar toolbar = activity.findViewById(R.id.topAppBar);
-        toolbar.setTitle("Home Screen");
+        toolbar.setTitle("Wedding Dream");
 
         db = FirebaseFirestore.getInstance();
 
